@@ -2,8 +2,9 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightBlog from 'starlight-blog';
 import tailwind from "@astrojs/tailwind";
-
 import react from "@astrojs/react";
+import astroExpressiveCode from "astro-expressive-code";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -54,7 +55,6 @@ export default defineConfig({
       Sidebar: 'starlight-blog/overrides/Sidebar.astro'
       // ThemeSelect: 'starlight-blog/overrides/ThemeSelect.astro',
     },
-
     social: {
       github: 'https://github.com/wasp-lang/open-saas',
       twitter: 'https://twitter.com/wasp_lang',
@@ -75,5 +75,9 @@ export default defineConfig({
     }]
   }), tailwind({
     applyBaseStyles: false
-  }), react()]
+  }), react(),
+  astroExpressiveCode({
+    // themes: [houston],
+    frames: false,
+  }), mdx()]
 });
